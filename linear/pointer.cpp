@@ -9,15 +9,32 @@
 
 // pass by value of pointer.
 
+// #include<iostream>
+// using namespace std;
+// void change(int x)
+// {
+//     x=20; 
+//     cout<<x <<endl;
+// }
+// int main(){
+//     int x=10;
+//     change(x);
+//     cout<<x;
+// }
+
+
+// pass by reference of pointer.
+
+
 #include<iostream>
 using namespace std;
-void change(int x)
+void change(int *px)
 {
-    x=20; 
-    cout<<x <<endl;
+    *px=20; 
+    cout<<*px <<endl;
 }
 int main(){
     int x=10;
-    change(x);
+    change(&x);
     cout<<x;
 }
