@@ -1,0 +1,19 @@
+Root is a parent elements and Node is child elements of parent Node (The parent node is Root).
+
+Node store information and other node connection the parent node.
+
+Root: Root has no parent.(Root has main parent).
+
+Parent Node: parent node is a Immediate Predecessor.(immediate predecessor means That is it's parent node)
+
+Leaf Node: There has no child node.
+
+Non Leaf Node: There are at last one node in this parent node.(Internal Node)
+
+Path: Sequence of connection of edges.(edges = node)
+
+Ancestor: Root node predecessor.   (Predecessor working up to down step.)
+
+Decendent: Root node successor.  (Seccessor working down to up step.)
+
+Sibligns: Children are form same parent node.
