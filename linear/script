@@ -1,0 +1,9 @@
+Pointer Declaration: A pointer, we use the ( * ) dereference operator.
+int *ptr;
+
+Pointer Initialization: Pointer initialization is the process where we assign some initial value to the pointer variable. We generally use the ( & ) addressof operator to get the memory address of a variable and then store it in the pointer variable.
+int var = 10;
+int * ptr;
+ptr = &var;
+
+Pointer Dereferencing:
