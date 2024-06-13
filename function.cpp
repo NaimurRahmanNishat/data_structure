@@ -102,9 +102,9 @@ float sub(float x, float y){
     float sub_result=x-y;
     return sub_result;
 }
-void result(string a){
-    string add=a;
-    cout<<a;
+void result(string name){
+    string add=name;
+    cout<<add;
 }
 int main(){
     int a=5,b=7;
@@ -113,6 +113,6 @@ int main(){
     float x=6.5,y=3.1;
     float sub_function=sub(x,y);
     cout<<sub_function << endl;
-    string name= "Naimur Rahman";
+    string name = "Naimur Rahman";
     result(name);
 }
