@@ -80,12 +80,12 @@ int main(){
     cin >> n;  // Take the number of elements as input from the user.
 
     for(int i = 0; i < n; i++) {
-        cout << "Enter value to insert at the beginning: ";
+        cout << "Enter value to insert at the beginning: " << i << " ";
         cin >> value;  // Take the value to be inserted as input from the user.
         insert_beginning(value);  // Insert the value at the beginning of the list.
     }
 
-    cout << "The linked list is: ";
+    cout << "At the beginning of a linked list: ";
     print();   // Call the print function to display the list.
 
     return 0;
