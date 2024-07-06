@@ -78,12 +78,12 @@ void insert_end(int value) {
     if (head == NULL) {
         head = temp;
     } else {
-        struct Node* t;
-        t = head;
-        while (t->link != NULL) {
-            t = t->link;
+        struct Node* temp1;
+        temp1 = head;
+        while (temp1->link != NULL) {
+            temp1 = temp1->link;
         }
-        t->link = temp;
+        temp1->link = temp;
     }
 }
 
@@ -94,8 +94,8 @@ int main() {
     cout << "Enter the number of elements you want to insert: ";
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
-        cout << "Enter value " << i + 1 << ": ";
+    for (int i=1; i<=n; i++) {
+        cout << "Enter the value " << i << " is: ";
         cin >> value;
         insert_end(value);
     }
