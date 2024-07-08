@@ -169,3 +169,109 @@ int main(){
     } while (option != 0);
     return 0;
 };
+
+
+
+
+
+// Shorts Queue.
+#include <iostream>
+using namespace std;
+
+class Queue {
+private:
+    int front, rear, n;
+    int *arr;
+
+public:
+    Queue(int size) {
+        n = size;
+        arr = new int[n];
+        front = rear = -1;
+    }
+
+    void enqueue(int value) {
+        if (rear == n - 1) {
+            cout << "Overflow" << endl;
+        } else if (front == -1 && rear == -1) {
+            front = rear = 0;
+            arr[rear] = value;
+        } else {
+            rear++;
+            arr[rear] = value;
+        }
+    }
+
+    int dequeue() {
+        if (front == -1 && rear == -1) {
+            cout << "Queue is Empty" << endl;
+            return -1; // Return a value indicating the queue is empty
+        } else if (front == rear) {
+            int value = arr[front];
+            front = rear = -1;
+            return value;
+        } else {
+            return arr[front++];
+        }
+    }
+
+    void display() {
+        if (front == -1 && rear == -1) {
+            cout << "Queue is Empty" << endl;
+        } else {
+            cout << "Queue elements: ";
+            for (int i = front; i <= rear; i++) {
+                cout << arr[i] << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    ~Queue() {
+        delete[] arr;
+    }
+};
+
+int main() {
+    int size;
+    cout << "Enter the size of the queue: ";
+    cin >> size;
+    Queue q1(size);
+    int option, value;
+
+    do {
+        cout << "\nWhat operation do you want to perform? Select option number. Enter 0 to exit." << endl;
+        cout << "1. Enqueue()" << endl;
+        cout << "2. Dequeue()" << endl;
+        cout << "3. Display()" << endl;
+
+        cin >> option;
+
+        switch (option) {
+        case 1:
+            cout << "Enqueue operation \nEnter an Item to Enqueue in the Queue: ";
+            cin >> value;
+            q1.enqueue(value);
+            break;
+
+        case 2:
+            value = q1.dequeue();
+            if (value != -1) {
+                cout << "Dequeue Operation\nDequeued value: " << value << endl;
+            }
+            break;
+
+        case 3:
+            cout << "Display Function called - " << endl;
+            q1.display();
+            break;
+
+        default:
+            if (option != 0)
+                cout << "Invalid Option! Please select a valid operation." << endl;
+            break;
+        }
+    } while (option != 0);
+
+    return 0;
+}
