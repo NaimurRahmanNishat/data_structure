@@ -136,3 +136,107 @@ int main() {
 
     return 0;
 }
+
+
+
+
+
+
+// Another Stack system.
+#include<iostream>
+using namespace std;
+
+const int MAX = 1000;      // This declare is a const variable name (const).
+int stack[MAX];            // max value store the stack array.
+int top = -1;              // initilize the top value is -1.
+
+bool isFull(){
+    return top == MAX -1;  
+};
+
+bool isEmpty(){
+    return top == -1;
+};
+
+void push(int value){
+    if (isFull())
+    {
+        cout<< "Stack is overflow" << endl;
+        return;
+    }
+    stack[++top] = value;
+};
+
+int pop(){
+    if (isEmpty())
+    {
+        cout<< "Stack is underflow" << endl;
+        return -1;
+    }
+    return stack[top--];
+};
+
+int peek(){
+    if (isEmpty())
+    {
+        cout<< "Stack is Empty" << endl;
+        return -1;
+    }
+    return stack[top];
+};
+
+void display(){
+    if (isEmpty())
+    {
+        cout<< "Stack is Empty" << endl;
+        return;
+    }
+    else
+    {
+        cout<< "Stack elements: ";
+        for (int i = 0; i <= top; i++)
+        {
+            cout<< stack[i] << " ";
+        }
+        cout<< endl;
+    }
+};
+
+int main(){
+    int choice, value;
+    while (true)
+    {
+        cout << "\nStack Menu:\n";
+        cout << "1. Push\n";
+        cout << "2. Pop\n";
+        cout << "3. Peek\n";
+        cout << "4. Display\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice menu: ";
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            cout<< "Enter the push value: ";
+            cin>> value;
+            push(value);
+            break;
+        case 2:
+            cout<< "Enter the pop vlaue: " << pop() << endl;
+            break;
+        case 3:
+            cout<< "Enter the peek value: " << peek() << endl;
+            break;
+        case 4:
+            display();
+            break;
+        case 5:
+            cout<< "Exiting..." << endl;
+            return 0;
+        default:
+            cout<< "Invalid choice. Please try again." << endl;
+            break;
+        }
+    }
+    return 0;
+}
