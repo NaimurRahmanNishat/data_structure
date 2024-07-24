@@ -62,7 +62,7 @@ void print(){    // create a function. This function name is print.
         temp= temp->link;  // This is true again go back the loop and check the condition and print the value.
     }
     
-}
+};
 
 void insert_beginning(int value){
     struct Node* temp = (struct Node*)malloc(sizeof(struct Node));   // First of all create a node [ malloc(sizeof(struct Node)) ] then type [ (struct Node*) ]. Create a address And then Store the address value. This address name is temp.

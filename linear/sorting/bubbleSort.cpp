@@ -46,8 +46,8 @@ int main() {
     cout<<"Enter array number: ";
     cin>>n;
     int arr[n];
-    cout<<"Input array index: ";
     for(int i=0; i<n; i++){
+        cout<<"Input array index: ";
         cin>>arr[i];
     }
     bubbleSort(arr, n);

@@ -106,45 +106,44 @@ int main() {
 // Another queue system.
 #include<iostream>
 using namespace std;
-
-const int MAX = 1000;      // This declares a const variable name (const).
-int queue[MAX];            // Max value stores the queue array.
-int front = -1;            // Initialize the front value as -1.
-int rear = -1;             // Initialize the rear value as -1.
-
+const int MAX = 1000;
+int queue[MAX];
+int front = -1;
+int rear = -1;
 bool isFull(){
     return rear == MAX - 1;
 };
-
 bool isEmpty(){
     return front == -1 || front > rear;
 };
-
 void enqueue(int value){
-    if (isFull()){
-        cout << "Queue is full" << endl;
+    if (isFull())
+    {
+        cout<< "Queue is Overflow"<< endl;
         return;
     }
-    if (front == -1) front = 0;
+    if (front == -1)
+    {
+        front = 0;
+    }
     queue[++rear] = value;
 };
-
 int dequeue(){
-    if (isEmpty()){
-        cout << "Queue is empty" << endl;
+    if (isEmpty())
+    {
+        cout<< "Queue is Underflow"<< endl;
         return -1;
     }
     return queue[front++];
 };
-
 int peek(){
-    if (isEmpty()){
-        cout << "Queue is empty" << endl;
+    if (isEmpty())
+    {
+        cout<< "Queue is Empty" <<endl;
         return -1;
     }
     return queue[front];
 };
-
 void display(){
     if (isEmpty()){
         cout << "Queue is empty" << endl;
@@ -158,41 +157,49 @@ void display(){
         cout << endl;
     }
 };
-
 int main(){
     int choice, value;
-    while (true){
-        cout << "\nQueue Menu:\n";
-        cout << "1. Enqueue\n";
-        cout << "2. Dequeue\n";
-        cout << "3. Peek\n";
-        cout << "4. Display\n";
-        cout << "5. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-        switch (choice){
+    while (true)
+    {
+        cout<< "\nQueue Menu\n";
+        cout<< "1. isfull\n";
+        cout<< "2. isempty\n";
+        cout<< "3. enqueue\n";
+        cout<< "4. dequeue\n";
+        cout<< "5. peek\n";
+        cout<< "6. display\n";
+        cout<< "7. exit\n";
+        cout<< "Enter the choice menu: ";
+        cin>> choice;
+        switch (choice)
+        {
         case 1:
-            cout << "Enter the value to enqueue: ";
-            cin >> value;
-            enqueue(value);
+            cout<< (isFull()? "Queue is full" : "Queue is not full");
             break;
         case 2:
-            cout << "Dequeued value: " << dequeue() << endl;
+            cout<< (isEmpty()? "Queue is empty" : "Queue is not empty");
             break;
         case 3:
-            cout << "Peek value: " << peek() << endl;
+            cout<< "Enter the enqueue value: ";
+            cin>> value;
+            enqueue(value);
             break;
         case 4:
-            display();
+            cout<< "Enter the dequeue value: " << dequeue() << endl;
             break;
         case 5:
-            cout << "Exiting..." << endl;
+            cout<< "Enter the peek value: " << peek() << endl;
+            break;
+        case 6:
+            display();
+            break;
+        case 7:
+            cout<< "Exiting...";
             return 0;
         default:
-            cout << "Invalid choice. Please try again." << endl;
+            cout<< "Invalid choice. Please try again.";
             break;
         }
     }
-    
     return 0;
-}
+};

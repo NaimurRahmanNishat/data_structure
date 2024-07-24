@@ -133,7 +133,6 @@ int main() {
             cout << "Enter proper option number" << endl;
         }
     } while (option != 0);
-
     return 0;
 }
 
@@ -142,101 +141,101 @@ int main() {
 
 
 
-// Another Stack system.
+// // Another Stack system.
 #include<iostream>
 using namespace std;
-
-const int MAX = 1000;      // This declare is a const variable name (const).
-int stack[MAX];            // max value store the stack array.
-int top = -1;              // initilize the top value is -1.
-
+const int MAX = 1000;
+int stack[MAX];
+int top = -1;
 bool isFull(){
-    return top == MAX -1;  
+    return top == MAX -1;
 };
-
 bool isEmpty(){
     return top == -1;
 };
-
 void push(int value){
     if (isFull())
     {
-        cout<< "Stack is overflow" << endl;
+        cout<< "Stack is Underflow"<< endl;
         return;
     }
     stack[++top] = value;
 };
-
 int pop(){
     if (isEmpty())
     {
-        cout<< "Stack is underflow" << endl;
+        cout<< "Stack is Underflow"<< endl;
         return -1;
     }
     return stack[top--];
 };
-
 int peek(){
     if (isEmpty())
     {
-        cout<< "Stack is Empty" << endl;
+        cout<< "Stack is Empty"<< endl;
         return -1;
     }
     return stack[top];
 };
-
 void display(){
     if (isEmpty())
     {
-        cout<< "Stack is Empty" << endl;
+        cout<< "Stack is Empty"<< endl;
         return;
     }
     else
     {
-        cout<< "Stack elements: ";
+        cout<< "Stack element: ";
         for (int i = 0; i <= top; i++)
         {
-            cout<< stack[i] << " ";
+            cout<< stack[i]<< " ";
         }
         cout<< endl;
     }
 };
-
 int main(){
     int choice, value;
     while (true)
     {
-        cout << "\nStack Menu:\n";
-        cout << "1. Push\n";
-        cout << "2. Pop\n";
-        cout << "3. Peek\n";
-        cout << "4. Display\n";
-        cout << "5. Exit\n";
-        cout << "Enter your choice menu: ";
-        cin >> choice;
+        cout<< "\nStack Menu\n";
+        cout<< "1. isFull\n";
+        cout<< "2. isEmpty\n";
+        cout<< "3. push\n";
+        cout<< "4. pop\n";
+        cout<< "5. peek\n";
+        cout<< "6. display\n";
+        cout<< "7. exit\n";
+        cout<< "Enter the choice menu: ";
+        cin>> choice;
         switch (choice)
         {
         case 1:
-            cout<< "Enter the push value: ";
+            cout<< (isFull()? "Stack is Full" : "Stack is not Full");
+            break;
+        case 2:
+            cout<< (isEmpty()? "Stack is Empty" : "Stack is not Empty");
+            break;
+        case 3:
+            cout<< "Enter the choice menu: ";
             cin>> value;
             push(value);
             break;
-        case 2:
-            cout<< "Enter the pop vlaue: " << pop() << endl;
-            break;
-        case 3:
-            cout<< "Enter the peek value: " << peek() << endl;
-            break;
         case 4:
-            display();
+            cout<< "Enter the pop value: " << pop() << endl;
             break;
         case 5:
-            cout<< "Exiting..." << endl;
+            cout<< "Enter the value: " <<peek() << endl;
+            break;
+        case 6:
+            display();
+            break;
+        case 7:
+            cout<< "Exiting...";
             return 0;
         default:
-            cout<< "Invalid choice. Please try again." << endl;
+            cout<< "Invalid choice. Please try again.";
             break;
         }
     }
     return 0;
-}
+};

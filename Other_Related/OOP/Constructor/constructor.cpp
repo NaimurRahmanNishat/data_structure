@@ -16,6 +16,10 @@ class Student
         id = x;
         cgpa = y;
     };
+    // Student(int a, int b){
+    //     id = a;
+    //     cgpa = b;
+    // }
 };
 
 int main(){
