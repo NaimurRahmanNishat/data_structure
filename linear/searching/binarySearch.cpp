@@ -1,3 +1,5 @@
+// Binary search can be implemented only on a sorted list of items. If the elements are not sorted already, we need to sort them first.
+
 #include <iostream>
 using namespace std;
 int binarySearch(int arr[], int low, int high, int value) {    // Initilize the parameter.
@@ -24,3 +26,38 @@ int main() {
 
 // Time Complexity: O(log N)
 // Auxiliary Space: O(1)
+
+
+// user input binary search algorithum
+#include <iostream>
+#include<algorithm>
+using namespace std;
+int binarySearch(int arr[], int low, int high, int value) {
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == value)
+            return mid;
+        if (arr[mid] < value)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1; // Return -1 if the target element is not found
+};
+int main() {
+    int count, value;
+    cout<< "Enter the number of elements in the array: ";
+    cin>> count;
+    int arr[count];
+    for (int i = 0; i < count; i++)
+    {
+        cout<< "Input the vlaue: ";
+        cin>> arr[i];
+    }
+    cout<< "Enter the value of Search: ";
+    cin>> value;
+    int result = binarySearch(arr, 0, count - 1, value);
+    cout << ((result == -1) ? "Element is not present in array" : "Element is present at index") << " : " << result << endl;
+    return 0;
+};
