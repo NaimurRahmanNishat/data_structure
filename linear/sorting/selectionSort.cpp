@@ -51,11 +51,11 @@ void selectionSort(int arr[], int n){
 }
 int main() {
     int n;
-    cout << "Enter array size: ";
+    cout<<"Enter the size of array: ";
     cin >> n;
     int arr[n];
-    cout << "Input array elements: ";
     for (int i = 0; i < n; i++) {
+        cout << "Input array index: ";
         cin >> arr[i];
     }
     selectionSort(arr, n);

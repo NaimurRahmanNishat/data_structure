@@ -34,7 +34,7 @@ void bubbleSort(int arr[], int n){
     for(i = 0; i < n-1; i++) {  // this loop start in 0 index vlue and this loop continue up to (n-1).
         for(j = 0; j < n-1-i; j++) {  // Fixed inner loop condition
             if(arr[j] > arr[j+1]) {  // Added if statement for comparison 
-                int temp = arr[j];
+                int temp = arr[j];   // sawping the condition.
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
             }
@@ -43,7 +43,7 @@ void bubbleSort(int arr[], int n){
 }
 int main() {
     int n;
-    cout<<"Enter array number: ";
+    cout<<"Enter the size of array: ";
     cin>>n;
     int arr[n];
     for(int i=0; i<n; i++){
@@ -51,7 +51,7 @@ int main() {
         cin>>arr[i];
     }
     bubbleSort(arr, n);
-    cout <<"Enter output: ";
+    cout <<"Sorted array: ";
     for(int k = 0; k < n; k++) {
         cout<< arr[k] << "  ";
     }

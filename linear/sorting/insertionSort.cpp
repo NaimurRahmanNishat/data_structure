@@ -44,17 +44,14 @@ void insertionSort(int arr[], int n) {
 
 int main() {
     int n;
-    cout << "Enter the number of elements: ";
+    cout<<"Enter the size of array: ";
     cin >> n;
-
     int arr[n];
-    cout << "Enter the elements: ";
     for(int i = 0; i < n; i++) {
+        cout << "Input the index: ";
         cin >> arr[i];
     }
-
     insertionSort(arr, n);
-
     cout << "Sorted array: ";
     for(int k = 0; k < n; k++) {
         cout << arr[k] << "  ";
