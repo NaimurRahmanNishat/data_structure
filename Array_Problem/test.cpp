@@ -1,33 +1,61 @@
-// user input binary search algorithum
 #include <iostream>
-#include<algorithm>
 using namespace std;
-void binarySearch(int arr[], int low, int high, int value) {
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-        if (arr[mid] == value)
-            return mid;
-        if (arr[mid] < value)
-            low = mid + 1;
-        else
-            high = mid - 1;
-    }
-    cout << ((result == -1) ? "Element is not present in array" : "Element is present at index") << " : " << result << endl;
-    // return -1; // Return -1 if the target element is not found
-};
+
 int main() {
-    int count, value;
-    cout<< "Enter the number of elements in the array: ";
-    cin>> count;
-    int arr[count];
-    for (int i = 0; i < count; i++)
-    {
-        cout<< "Input the vlaue: ";
-        cin>> arr[i];
+    int size, position, value;
+
+    // Input the size of the array
+    cout << "Input the size of array: ";
+    cin >> size;
+
+    // Declare the array with a size one larger to accommodate insertion
+    int array[size + 1];
+
+    // Input array elements
+    cout << "Input " << size << " elements in the array in ascending order:" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << "element - " << i << " : ";
+        cin >> array[i];
     }
-    cout<< "Enter the value of Search: ";
-    cin>> value;
-     binarySearch(arr, 0, count - 1, value);
+
+    // Display the current list of the array
+    cout << "The current list of the array:" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+
+    // Input the value to be inserted
+    cout << "Input the value to be inserted: ";
+    cin >> value;
+
+    // Input the position to insert the value
+    cout << "Input the Position, where the value to be inserted: ";
+    cin >> position;
+
+    // Check for valid position
+    if (position < 1 || position > size + 1) {
+        cout << "Invalid position!" << endl;
+        return 1;
+    }
+
+    // Adjust the position for 0-based indexing
+    position--;
+
+    // Shift elements to the right to make space for the new value
+    for (int i = size; i > position; i--) {
+        array[i] = array[i - 1];
+    }
+
+    // Insert the new value
+    array[position] = value;
+
+    // Display the new list of the array
+    cout << "After inserting the element, the new list is:" << endl;
+    for (int i = 0; i <= size; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+
     return 0;
-};
+}
