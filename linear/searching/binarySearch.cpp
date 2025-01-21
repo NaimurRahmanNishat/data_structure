@@ -30,34 +30,38 @@ int main() {
 
 // user input binary search algorithum
 #include <iostream>
-#include<algorithm>
 using namespace std;
-int binarySearch(int arr[], int low, int high, int value) {
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-        if (arr[mid] == value)
-            return mid;
-        if (arr[mid] < value)
-            low = mid + 1;
-        else
+int binarySearch(int arr[], int value, int count) {
+    int low = 0, high = count - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2; 
+        if (arr[mid] == value) {
+            return mid; 
+        } else if (arr[mid] < value) {
+            low = mid + 1; 
+        } else {
             high = mid - 1;
+        }
     }
-    return -1; // Return -1 if the target element is not found
-};
+    return -1; 
+}
 int main() {
     int count, value;
-    cout<< "Enter the number of elements in the array: ";
-    cin>> count;
+    cout << "Input the array size: ";
+    cin >> count;
     int arr[count];
-    for (int i = 0; i < count; i++)
-    {
-        cout<< "Input the vlaue: ";
-        cin>> arr[i];
+    cout << "Input elements in sorted order:\n";
+    for (int i = 0; i < count; i++) {
+        cout << "element - " << i << " : ";
+        cin >> arr[i];
     }
-    cout<< "Enter the value of Search: ";
-    cin>> value;
-    int result = binarySearch(arr, 0, count - 1, value);
-    cout << ((result == -1) ? "Element is not present in array" : "Element is present at index") << " : " << result << endl;
+    cout << "Enter the searching value: ";
+    cin >> value;
+    int result = binarySearch(arr, value, count);
+    if (result != -1) {
+        cout << "Value found at index: " << result << endl;
+    } else {
+        cout << "Value not found in the array." << endl;
+    }
     return 0;
-};
+}
